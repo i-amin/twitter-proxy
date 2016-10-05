@@ -3,7 +3,7 @@ var https = require('https');
 var url = require('url');
 var querystring = require('querystring');
 
-var portNum = 3000;
+var portNum = process.env.PORT || 3000;
 
 /*
  * generate the bearer code
@@ -39,7 +39,7 @@ if (!process.env.consumerKey || !process.env.consumerSecret) {
 
 
     bearerAuthReq.on('error', function (e) {
-        debugger;
+        console.error(e);
     });
 }
 
